@@ -43,8 +43,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data.Entities\Evento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CreadorMensajeDia.cs" />
+    <Compile Include="Services\CreadorMensajeHora.cs" />
+    <Compile Include="Services\CreadorMensajeMes.cs" />
+    <Compile Include="Services\CreadorMensajeMinuto.cs" />
+    <Compile Include="Services\EvaluadorFecha.cs" />
+    <Compile Include="Services\Factory\CreadorMensajeFactory.cs" />
+    <Compile Include="Services\Factory\EvaluadorFechaFactory.cs" />
+    <Compile Include="Services\Factory\Interfaces\IEvaluadorFechaFactory.cs" />
+    <Compile Include="Services\Factory\Interfaces\IObtenedorMensajeEventosFactory.cs" />
+    <Compile Include="Services\Factory\Interfaces\IRecuperadorListaEventoFactory.cs" />
+    <Compile Include="Services\Factory\ObtenedorMensajeEventosFactory.cs" />
+    <Compile Include="Services\Factory\RecuperadorListaEventoFactory.cs" />
+    <Compile Include="Services\Interfaces\ICreadorMensaje.cs" />
+    <Compile Include="Services\Factory\Interfaces\ICreadorMensajeFactory.cs" />
+    <Compile Include="Services\Interfaces\IEvaluadorFecha.cs" />
+    <Compile Include="Services\Interfaces\IObtenedorConfiguracionTiempo.cs" />
+    <Compile Include="Services\Interfaces\IObtenedorMensajeEventos.cs" />
+    <Compile Include="Services\Interfaces\IObtenedorDatosArchivo.cs" />
+    <Compile Include="Services\Interfaces\IRecuperadorListaEvento.cs" />
+    <Compile Include="Services\ObtenedorConfiguracionTiempo.cs" />
+    <Compile Include="Services\ObtenedorDatosArchivo.cs" />
+    <Compile Include="Services\ObtenedorMensajeEventos.cs" />
+    <Compile Include="Services\RecuperadorListaEvento.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
