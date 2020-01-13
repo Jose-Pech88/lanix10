@@ -10,3 +10,4 @@ C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\obj\Debug\ReadFile
 C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\bin\Debug\ReadFile.exe.config
 C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\bin\Debug\ReadFile.exe
 C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\bin\Debug\ReadFile.pdb
+C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\bin\Debug\AppData\Ffile.txt

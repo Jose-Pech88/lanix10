@@ -3,11 +3,7 @@ using ReadFile.Services.Factory;
 using ReadFile.Services.Factory.Interfaces;
 using ReadFile.Services.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReadFile
 {
@@ -20,17 +16,24 @@ namespace ReadFile
             }
             catch(Exception ex) {
                 Console.WriteLine(ex.Message);
-            }
-            System.Console.ReadKey();
+            }            
         }
 
+        /// <summary>
+        /// Inicializa la aplicación.
+        /// </summary>
         private static void InicializarAplicacion()
         {
             string cMensaje = string.Empty;
+
+            //Se obtiene la ruta del archivo.
+            string cPath = string.Format("{0}{1}", Directory.GetCurrentDirectory(), @"\AppData\Ffile.txt");
             IObtenedorMensajeEventosFactory ObtenedorMensajeEventosFactory = new ObtenedorMensajeEventosFactory();
             IObtenedorMensajeEventos ObtenedorMensajeEventos = ObtenedorMensajeEventosFactory.ObtenerInstancia();
-            cMensaje = ObtenedorMensajeEventos.ObtenerMensaje(@"C:\Users\jose.pech\source\repos\ReadFile\ReadFile\Ffile.txt", DateTime.Now);
+            cMensaje = ObtenedorMensajeEventos.ObtenerMensaje(cPath, DateTime.Now);
             Console.WriteLine(cMensaje);
+            Console.WriteLine("\r\nPresione una tecla para salir.");
+            System.Console.ReadKey();
         }
     }
 }

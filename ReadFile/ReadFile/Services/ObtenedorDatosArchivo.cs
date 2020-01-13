@@ -1,18 +1,14 @@
 ﻿using ReadFile.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReadFile.Services
 {
     public class ObtenedorDatosArchivo: IObtenedorDatosArchivo
     {
-        public ObtenedorDatosArchivo()
-        {
-        }
-
+        /// <summary>
+        /// Obtiene la filas contenidas en el archivo.
+        /// </summary>
+        /// <param name="_path">Ruta del archivo.</param>
+        /// <returns>Retorna un arreglo que contiene las filas contenidad en el archivo.</returns>
         public string[] LeerArchivo(string _path)
         {
             return System.IO.File.ReadAllLines(_path);

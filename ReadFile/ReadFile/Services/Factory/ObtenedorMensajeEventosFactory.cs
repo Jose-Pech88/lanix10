@@ -1,23 +1,22 @@
 ﻿using ReadFile.Services.Factory.Interfaces;
 using ReadFile.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReadFile.Services.Factory
 {
     public class ObtenedorMensajeEventosFactory: IObtenedorMensajeEventosFactory
     {
+        /// <summary>
+        /// Crea una instancia de la clase ObtenedorMensajeEventos.
+        /// </summary>
+        /// <returns>Retorna una interfaz de tipo IObtenedorMensajeEventos.</returns>
         public IObtenedorMensajeEventos ObtenerInstancia()
         {
-            RecuperadorListaEventoFactory RecuperadorListaEventoFactory = new RecuperadorListaEventoFactory();
-            CreadorMensajeFactory CreadorMensajeFactory = new CreadorMensajeFactory();
-            EvaluadorFechaFactory EvaluadorFechaFactory = new EvaluadorFechaFactory();
+            IRecuperadorListaEventoFactory RecuperadorListaEventoFactory = new RecuperadorListaEventoFactory();
+            ICreadorMensajeFactory CreadorMensajeFactory = new CreadorMensajeFactory();
+            ICompletadorDatosDTOFactory CompletadorDatosDTOFactory = new CompletadorDatosDTOFactory();
             IRecuperadorListaEvento RecuperadorListaEvento = RecuperadorListaEventoFactory.ObtenerInstancia();
-            IEvaluadorFecha EvaluadorFecha = EvaluadorFechaFactory.ObtenerInstancia();
-            ObtenedorMensajeEventos ObtenedorMensajeEventos = new ObtenedorMensajeEventos(RecuperadorListaEvento, CreadorMensajeFactory, EvaluadorFecha);
+            ICompletadorDatosDTO CompletadorDatos = CompletadorDatosDTOFactory.ObtenerInstancia();
+            IObtenedorMensajeEventos ObtenedorMensajeEventos = new ObtenedorMensajeEventos(RecuperadorListaEvento, CreadorMensajeFactory, CompletadorDatos);
             return ObtenedorMensajeEventos;
         }
     }

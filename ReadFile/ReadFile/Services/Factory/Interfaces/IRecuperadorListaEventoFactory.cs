@@ -1,14 +1,12 @@
 ﻿using ReadFile.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ReadFile.Services.Factory.Interfaces
 {
     public interface IRecuperadorListaEventoFactory
     {
+        /// <summary>
+        /// Crea una instancia de la clase RecuperadorListaEvento.
+        /// </summary>
+        /// <returns>Retorna una interfaz de tipo IRecuperadorListaEvento.</returns>
         IRecuperadorListaEvento ObtenerInstancia();
     }
 }

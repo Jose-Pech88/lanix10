@@ -1,35 +1,35 @@
 ﻿using ReadFile.Services.Factory.Interfaces;
 using ReadFile.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReadFile.Services.Factory
 {
     public class CreadorMensajeFactory : ICreadorMensajeFactory
     {
+        /// <summary>
+        /// Crea una instancia de una clase, dependiendo de la estrategia enviada como parámetro.
+        /// </summary>
+        /// <param name="_nOpcion">Estrategia que defina la instancia de la clase a crear.</param>
+        /// <returns>Retorna una interfaz de tipo ICreadorMensaje.</returns>
         public ICreadorMensaje ObtenerInstancia(int _nOpcion)
         {
             IObtenedorConfiguracionTiempo ObtenedorConfiguracionTiempo = new ObtenedorConfiguracionTiempo();
-            ICreadorMensaje ICreadorMensaje = null;
+            ICreadorMensaje CreadorMensaje = null;
             switch(_nOpcion)
             {
                 case 0:
-                    ICreadorMensaje = new CreadorMensajeMinuto(ObtenedorConfiguracionTiempo);
+                    CreadorMensaje = new CreadorMensajeMinuto(ObtenedorConfiguracionTiempo);
                     break;
                 case 1:
-                    ICreadorMensaje = new CreadorMensajeHora(ObtenedorConfiguracionTiempo);
+                    CreadorMensaje = new CreadorMensajeHora(ObtenedorConfiguracionTiempo);
                     break;
                 case 2:
-                    ICreadorMensaje = new CreadorMensajeDia(ObtenedorConfiguracionTiempo);
+                    CreadorMensaje = new CreadorMensajeDia(ObtenedorConfiguracionTiempo);
                     break;
                 case 3:
-                    ICreadorMensaje = new CreadorMensajeMes(ObtenedorConfiguracionTiempo);
+                    CreadorMensaje = new CreadorMensajeMes(ObtenedorConfiguracionTiempo);
                     break;
             }
-            return ICreadorMensaje;
+            return CreadorMensaje;
         }
     }
 }

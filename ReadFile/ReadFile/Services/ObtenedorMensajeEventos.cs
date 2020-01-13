@@ -3,29 +3,37 @@ using ReadFile.Services.Factory.Interfaces;
 using ReadFile.Services.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReadFile.Services
 {
     public class ObtenedorMensajeEventos : IObtenedorMensajeEventos
     {
+        /// <summary>
+        /// Dependencia de tipo IRecuperadorListaEvento.
+        /// </summary>
         private readonly IRecuperadorListaEvento RecuperadorListaEvento;
+
+        /// <summary>
+        /// Dependencia de tipo ICreadorMensajeFactory.
+        /// </summary>
         private readonly ICreadorMensajeFactory CreadorMensajeFactory;
-        private readonly IEvaluadorFecha EvaluadorFecha;
+
+        /// <summary>
+        /// Dependencia de tipo IComplementadorDatosDTO.
+        /// </summary>
+        private readonly ICompletadorDatosDTO CompletadorDatosDTO;
 
         /// <summary>
         /// Constructor de la clase.
         /// </summary>
         /// <param name="_recuperadorListaEvento">Dependencia de tipo IRecuperadorListaEvento.</param>
         /// <param name="_creadorMensajeFactory">Dependencia de tipo ICreadorMensajeFactory.</param>
-        /// <param name="_evaluadorFecha">Dependencia de tipo IEvaluadorFecha.</param>
-        public ObtenedorMensajeEventos(IRecuperadorListaEvento _recuperadorListaEvento, ICreadorMensajeFactory _creadorMensajeFactory, IEvaluadorFecha _evaluadorFecha)
+        /// <param name="_completadorDatosDTO">Dependencia de tipo IComplementadorDatosDTO.</param>
+        public ObtenedorMensajeEventos(IRecuperadorListaEvento _recuperadorListaEvento, ICreadorMensajeFactory _creadorMensajeFactory, ICompletadorDatosDTO _completadorDatosDTO)
         {
             RecuperadorListaEvento = _recuperadorListaEvento ?? throw new ArgumentNullException(nameof(_recuperadorListaEvento));
             CreadorMensajeFactory = _creadorMensajeFactory ?? throw new ArgumentNullException(nameof(_creadorMensajeFactory));
-            EvaluadorFecha = _evaluadorFecha ?? throw new ArgumentNullException(nameof(_evaluadorFecha));
+            CompletadorDatosDTO = _completadorDatosDTO ?? throw new ArgumentNullException(nameof(_completadorDatosDTO));
         }
 
         /// <summary>
@@ -54,7 +62,7 @@ namespace ReadFile.Services
             {
                 if(item.dtFecha!=DateTime.MinValue)
                 {
-                    LlenarDTOEvento(item, _dtFechaBase);
+                    CompletadorDatosDTO.LlenarDTOEvento(item, _dtFechaBase);
                     ICreadorMensaje ICreadorMensaje = CreadorMensajeFactory.ObtenerInstancia(item.iTipoMensaje);
                     if (item.lEsEventoPasado)
                     {
@@ -68,18 +76,6 @@ namespace ReadFile.Services
                 }
             }
             return cMensajeEventos;
-        }
-
-        /// <summary>
-        /// Llena la propiedades del DTO.
-        /// </summary>
-        /// <param name="evento">Dto a llenar.</param>
-        /// <param name="_dtFechaBase">Fecha Base que servira para comparar.</param>
-        private void LlenarDTOEvento(EventoDTO evento, DateTime _dtFechaBase)
-        {
-            evento.lEsEventoPasado = EvaluadorFecha.EvaluarFechaEventoPasado(_dtFechaBase, evento.dtFecha);
-            evento.iTipoMensaje=EvaluadorFecha.EvaluarFecha(_dtFechaBase, evento.dtFecha);
-            evento.iTiempoMinutos=(int)EvaluadorFecha.ObtenerTiempoEnMinutos(_dtFechaBase, evento.dtFecha);
         }
     }
 }

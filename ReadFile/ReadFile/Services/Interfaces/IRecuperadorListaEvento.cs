@@ -1,14 +1,15 @@
 ﻿using ReadFile.Data.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReadFile.Services.Interfaces
 {
+    /// <summary>
+    /// Crea una lista de objetos EventoDTO con las información contenida en el archivo cuya ubicación es enviada como parámetro.
+    /// </summary>
+    /// <param name="_path">Ruta del archivo a procesar.</param>
+    /// <returns>Retorna una lista de objetos de tipo EventoDTO.</returns>
     public interface IRecuperadorListaEvento
     {
-        List<EventoDTO> RecuperarListaEvento(string _pathFile);
+        List<EventoDTO> RecuperarListaEvento(string _path);
     }
 }

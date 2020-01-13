@@ -1,0 +1,7 @@
+C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\bin\Release\AppData\Ffile.txt
+C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\bin\Release\ReadFile.exe.config
+C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\bin\Release\ReadFile.exe
+C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\bin\Release\ReadFile.pdb
+C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\obj\Release\ReadFile.csprojAssemblyReference.cache
+C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\obj\Release\ReadFile.exe
+C:\Users\jose.pech\Documents\GitHub\lanix10\ReadFile\ReadFile\obj\Release\ReadFile.pdb
